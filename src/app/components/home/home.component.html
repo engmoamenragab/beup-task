@@ -1,0 +1,26 @@
+<div id="home" class="home py-5">
+  <!-- <h1>
+    <span class="badge bg-info m-5">{{ productCount }}</span>
+    <span class="badge bg-danger m-5" (click)="removeOne()" style="cursor: pointer">Remove</span>
+  </h1> -->
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-3 mb-3" *ngFor="let product of products">
+        <div class="home__item">
+          <div class="card">
+            <img [src]="product.image" class="card-img-top" [alt]="product.title" />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.id }}</p>
+              <p class="card-text">{{ product.description }}</p>
+              <p class="card-text">{{ product.category }}</p>
+              <p class="card-text">{{ product.price }}</p>
+              <input type="number" class="form-control mb-2" value="1" placeholder="Add quantity" #amount />
+              <button class="btn btn-primary" (click)="addToCart($event, amount.value, product.id)" style="cursor: pointer">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

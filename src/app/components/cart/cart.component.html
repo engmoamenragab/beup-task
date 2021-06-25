@@ -1,0 +1,35 @@
+<div id="cart" class="cart py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="cart__item">
+          <table class="table table-striped text-center">
+            <thead class="bg-secondary text-white">
+              <th>Num</th>
+              <th>Product Id</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Product Price</th>
+              <th>Delete</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cartOrder of cartOrders; index as i">
+                <td>{{ i }}</td>
+                <td>{{ cartOrder.productId }}</td>
+                <td>{{ cartOrder.productName | titlecase }}</td>
+                <td>{{ cartOrder.productAmount }}</td>
+                <td>{{ cartOrder.productTotalPrice | currency }}</td>
+                <td><button class="btn btn-danger" (click)="deleteItem($event, i)">Delete</button></td>
+              </tr>
+              <tr>
+                <td colspan="4">Total Price</td>
+                <td>{{ totalPrice | currency }}</td>
+                <td><button class="btn btn-danger" (click)="deleteAll()">Delete all</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
